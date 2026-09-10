@@ -15,3 +15,147 @@
 @keyframes loaderRise{from{opacity:0;transform:translateY(20px) scale(.94)}to{opacity:1;transform:none}}@keyframes loaderLine{0%{transform:translateX(-110%)}50%{transform:translateX(230%)}100%{transform:translateX(230%)}}@keyframes pulse{50%{opacity:.45}}@keyframes coverIn{from{opacity:0}to{opacity:1}}@keyframes coverText{from{opacity:0;transform:translateY(35px)}to{opacity:1;transform:none}}@keyframes breathe{50%{transform:scale(1.2);opacity:.7}}@keyframes buttonGlow{50%{box-shadow:0 0 35px #c4a16433}}@keyframes fall{0%{transform:translate3d(0,-10vh,0) rotate(0deg);opacity:0}10%{opacity:.65}50%{transform:translate3d(30px,55vh,0) rotate(180deg)}100%{transform:translate3d(-25px,115vh,0) rotate(360deg);opacity:0}}
 
 @media(max-width:760px){.cover h1{gap:9px}.cover-bismillah{font-size:24px}.cover-ornament{width:105vw;height:105vw}.open-btn{padding:15px 18px}}
+
+
+/* V8 — dedicated mobile composition */
+@media (max-width: 600px){
+  body{overflow-x:hidden}
+  .music{top:10px;right:10px;padding:9px 12px;font-size:7px;z-index:80}
+
+  /* Main invitation hero: intentionally re-composed for phones */
+  .hero{
+    min-height:100svh;
+    height:auto;
+    padding:0;
+    display:flex;
+    align-items:center;
+    justify-content:center;
+    overflow:hidden;
+  }
+  .hero-inner{
+    width:100%;
+    max-width:430px;
+    padding:82px 22px 70px;
+    margin:0 auto;
+    display:flex;
+    flex-direction:column;
+    align-items:center;
+    justify-content:center;
+  }
+  .bismillah{
+    font-size:25px;
+    line-height:1.35;
+    margin-bottom:13px;
+    white-space:nowrap;
+  }
+  .hero .eyebrow{
+    font-size:7px;
+    letter-spacing:.24em;
+  }
+  .rule{width:42px;margin:14px auto}
+  .parents{
+    font-size:18px;
+    line-height:1.1;
+    margin-bottom:12px;
+  }
+  .request{
+    max-width:300px;
+    font-size:7px;
+    line-height:1.75;
+    letter-spacing:.11em;
+    margin:0 auto;
+  }
+  .hero h1{
+    width:100%;
+    margin:43px 0 27px;
+    gap:8px;
+    font-size:clamp(57px,18vw,78px);
+    line-height:.68;
+    letter-spacing:-.065em;
+    white-space:nowrap;
+  }
+  .hero h1 small{
+    font-size:.43em;
+    margin-top:3px;
+  }
+  .fullnames{
+    max-width:320px;
+    font-size:7px;
+    line-height:1.8;
+    letter-spacing:.14em;
+  }
+  .fullnames b{
+    margin:0 7px;
+  }
+  .son{
+    max-width:300px;
+    font-size:6.5px;
+    line-height:1.5;
+    letter-spacing:.1em;
+    margin-top:5px;
+  }
+  .date{
+    margin-top:24px;
+    font-size:8px;
+    letter-spacing:.17em;
+    white-space:nowrap;
+  }
+  .date b{margin:0 4px}
+  .hero-time{
+    font-size:29px;
+    margin-top:3px;
+  }
+  .discover{
+    margin-top:25px;
+    padding:12px 15px;
+    font-size:7px;
+    letter-spacing:.15em;
+  }
+  .bottom-note{
+    bottom:15px;
+    width:100%;
+    font-size:5.5px;
+    letter-spacing:.2em;
+  }
+  .mandala{width:112vw;height:112vw;opacity:.8}
+  .m2{width:145vw;height:145vw}
+  .g1{width:85vw;height:85vw;left:-35vw}
+  .g2{width:75vw;height:75vw;right:-30vw}
+  .stars i{font-size:5px}
+
+  /* Extra-small phones */
+  @media (max-width:380px){
+    .hero-inner{padding-top:76px;padding-bottom:62px}
+    .bismillah{font-size:22px}
+    .parents{font-size:16px}
+    .hero h1{
+      font-size:clamp(49px,17vw,64px);
+      margin-top:38px;
+      margin-bottom:24px;
+      gap:6px;
+    }
+    .request{font-size:6.5px}
+    .date{font-size:7px;letter-spacing:.14em}
+    .hero-time{font-size:26px}
+    .discover{margin-top:21px}
+  }
+
+  /* Cover composition */
+  .cover-content{
+    width:100%;
+    padding:50px 22px 45px;
+  }
+  .cover .eyebrow{font-size:7px;letter-spacing:.22em}
+  .cover-bismillah{font-size:23px;margin:15px 0}
+  .cover h1{
+    margin:38px 0 25px;
+    gap:8px;
+    font-size:clamp(57px,18vw,78px);
+    line-height:.68;
+    white-space:nowrap;
+  }
+  .cover-date{font-size:7px;letter-spacing:.18em}
+  .open-btn{margin-top:28px;min-width:195px;padding:15px 17px}
+  .tap-note{font-size:6px;letter-spacing:.14em}
+  .cover-ornament{width:120vw;height:120vw}
+}
