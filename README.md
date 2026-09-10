@@ -1,20 +1,9 @@
-# Rayyan & Mariam — Premium Digital Nikah Invitation v2
+# Rayyan & Mariam — Premium Nikah V4
 
-Vercel-ready Next.js invitation website.
-
-## Features
-- Animated opening invitation
-- Rotating Islamic-inspired rings and subtle particles
-- Countdown to 15 November 2026
-- Original 32-second instrumental wedding ambience with working play/pause control
-- Exact RSVP phone numbers with clickable tel links
-- Google Maps venue link
-- Share invitation button
-- Mobile responsive luxury stationery aesthetic
-
-## Run
-npm install
-npm run dev
+Includes the supplied childhood image, original wedding ambience audio, advanced animations, countdown, RSVP, Maps and sharing.
 
 ## Deploy
-Push to GitHub and import the repository in Vercel. No API key is required.
+Replace the files in the existing GitHub repository with this project's contents and let Vercel redeploy.
+
+### Browser audio note
+Modern browsers generally block unmuted audio autoplay until the visitor interacts with the page. This build attempts autoplay immediately; if blocked, the first tap/click automatically starts the music and the Sound button can pause/resume it.
