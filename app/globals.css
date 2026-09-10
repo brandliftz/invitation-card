@@ -159,3 +159,388 @@
   .tap-note{font-size:6px;letter-spacing:.14em}
   .cover-ornament{width:120vw;height:120vw}
 }
+
+
+/* =========================================================
+   V9 MOBILE-FIRST SYSTEM
+   Designed for 320px–600px widths and short/tall phone screens.
+   ========================================================= */
+html,body{width:100%;max-width:100%;overflow-x:hidden}
+*{-webkit-tap-highlight-color:transparent}
+button,a{touch-action:manipulation}
+@media (max-width: 600px){
+  :root{--mobile-gutter:20px;--gold:#c4a164;--paper:#eee5d5;--ink:#332a1f}
+  body{min-width:0;overflow-x:hidden}
+
+  /* ---------- PRELOADER ---------- */
+  .preloader{width:100%;height:100dvh;min-height:100svh}
+  .loader-petals{width:230px;height:230px}
+  .loader-petals i{transform:rotate(calc(var(--i)*30deg)) translateY(-112px);font-size:10px}
+  .loader-monogram{font-size:clamp(50px,16vw,72px)}
+  .loader-line{width:125px;margin-top:126px}
+  .loader-text{margin-top:177px;font-size:6px;letter-spacing:.27em}
+
+  /* ---------- OPENING COVER ---------- */
+  .cover{
+    position:fixed;
+    width:100%;
+    height:100dvh;
+    min-height:100svh;
+    padding:0;
+    isolation:isolate;
+  }
+  .cover-content{
+    width:min(100%,430px);
+    height:100%;
+    min-height:100svh;
+    padding:clamp(68px,11vh,95px) var(--mobile-gutter) clamp(32px,7vh,60px);
+    display:flex;
+    flex-direction:column;
+    align-items:center;
+    justify-content:center;
+  }
+  .cover .eyebrow{font-size:7px;line-height:1.4;letter-spacing:.20em}
+  .cover-bismillah{font-size:clamp(21px,6.5vw,27px);line-height:1.5;margin:12px 0 9px}
+  .cover-line{margin:11px auto;width:38px}
+  .cover-small{font-size:6.5px;line-height:1.6;letter-spacing:.18em;margin:0}
+  .cover h1{
+    width:100%;
+    margin:clamp(30px,6vh,52px) 0 24px;
+    display:flex;
+    justify-content:center;
+    align-items:center;
+    gap:clamp(6px,2.2vw,11px);
+    font-size:clamp(53px,18vw,78px);
+    line-height:.68;
+    letter-spacing:-.065em;
+    white-space:nowrap;
+  }
+  .cover h1 small{font-size:.40em;line-height:1}
+  .cover-date{font-size:6.5px;letter-spacing:.15em;line-height:1.6;margin:0}
+  .open-btn{
+    margin-top:clamp(25px,4.5vh,36px);
+    min-width:194px;
+    min-height:48px;
+    padding:14px 17px;
+    display:inline-flex;
+    justify-content:center;
+    align-items:center;
+  }
+  .tap-note{font-size:5.8px;line-height:1.5;margin-top:12px}
+  .cover-ornament{width:122vw;height:122vw}
+  .cover-ornament:before{inset:8%}.cover-ornament:after{inset:18%}
+  .cover-glow{width:80vw;height:80vw}
+
+  /* ---------- MUSIC CONTROL ---------- */
+  .music{
+    top:max(10px,env(safe-area-inset-top));
+    right:10px;
+    min-height:34px;
+    padding:8px 10px;
+    font-size:6.5px;
+    letter-spacing:.13em;
+  }
+
+  /* ---------- HERO ---------- */
+  .hero{
+    width:100%;
+    min-height:100svh;
+    min-height:100dvh;
+    height:auto;
+    padding:0;
+    display:flex;
+    align-items:center;
+    justify-content:center;
+    isolation:isolate;
+  }
+  .hero-inner{
+    width:100%;
+    max-width:440px;
+    min-height:100svh;
+    min-height:100dvh;
+    height:auto;
+    padding:
+      max(78px,calc(env(safe-area-inset-top) + 66px))
+      var(--mobile-gutter)
+      max(58px,calc(env(safe-area-inset-bottom) + 48px));
+    display:flex;
+    flex-direction:column;
+    align-items:center;
+    justify-content:center;
+    position:relative;
+    z-index:5;
+  }
+  .hero .bismillah{
+    width:100%;
+    font-size:clamp(21px,6.8vw,28px);
+    line-height:1.4;
+    margin:0 0 11px;
+    white-space:nowrap;
+  }
+  .hero .eyebrow{font-size:6.5px;letter-spacing:.20em;line-height:1.5}
+  .hero .rule{width:40px;margin:13px auto}
+  .hero .parents{
+    font-size:clamp(16px,5vw,20px);
+    line-height:1.15;
+    margin:0 0 12px;
+  }
+  .hero .request{
+    width:min(100%,310px);
+    font-size:6.5px;
+    line-height:1.8;
+    letter-spacing:.09em;
+    margin:0;
+  }
+  .hero h1{
+    width:100%;
+    margin:clamp(33px,6vh,50px) 0 25px;
+    display:flex;
+    justify-content:center;
+    align-items:center;
+    gap:clamp(6px,2vw,10px);
+    font-size:clamp(50px,17.2vw,76px);
+    line-height:.68;
+    letter-spacing:-.065em;
+    white-space:nowrap;
+  }
+  .hero h1 small{font-size:.40em;line-height:1}
+  .hero .fullnames{
+    width:min(100%,335px);
+    font-size:6.5px;
+    line-height:1.9;
+    letter-spacing:.11em;
+    white-space:normal;
+  }
+  .hero .fullnames b{margin:0 6px}
+  .hero .son{
+    width:min(100%,300px);
+    font-size:6px;
+    line-height:1.5;
+    letter-spacing:.08em;
+    margin-top:5px;
+  }
+  .hero .date{
+    margin-top:22px;
+    font-size:7px;
+    line-height:1.5;
+    letter-spacing:.13em;
+    white-space:nowrap;
+  }
+  .hero .date b{margin:0 3px}
+  .hero .hero-time{font-size:27px;line-height:1;margin-top:5px}
+  .hero .discover{
+    min-height:43px;
+    margin-top:23px;
+    padding:11px 14px;
+    font-size:6.5px;
+    letter-spacing:.13em;
+  }
+  .hero .bottom-note{
+    width:calc(100% - 40px);
+    bottom:max(13px,env(safe-area-inset-bottom));
+    font-size:5px;
+    letter-spacing:.16em;
+    text-align:center;
+    line-height:1.5;
+  }
+
+  /* Decorations stay behind content and never cause horizontal overflow */
+  .hero .mandala{width:112vw;height:112vw;z-index:0;opacity:.65}
+  .hero .m2{width:145vw;height:145vw;opacity:.45}
+  .hero .g1{width:75vw;height:75vw;left:-38vw}
+  .hero .g2{width:65vw;height:65vw;right:-32vw}
+  .hero .stars i{font-size:5px}
+
+  /* ---------- PHOTO / MEMORY ---------- */
+  .memory{
+    min-height:auto;
+    width:100%;
+    padding:82px var(--mobile-gutter) 88px;
+    display:flex;
+    flex-direction:column;
+    gap:34px;
+  }
+  .memory-copy{width:100%;padding:0}
+  .memory .eyebrow{font-size:6.5px}
+  .memory h2{
+    font-size:clamp(56px,18vw,76px);
+    line-height:.76;
+    margin:17px 0 22px;
+    letter-spacing:-.045em;
+  }
+  .memory p{font-size:17px;line-height:1.45;max-width:310px;margin:0}
+  .memory-line{margin-top:25px}
+  .photo{
+    width:100%;
+    max-width:430px;
+    margin:0 auto;
+    aspect-ratio:4/5;
+  }
+  .photo img{width:100%;height:100%;object-fit:cover;object-position:center}
+  .photo-tag{top:12px;right:12px;padding:7px 8px;font-size:6px}
+
+  /* ---------- VERSE ---------- */
+  .verse{padding:82px 20px}
+  .verse .ornament{font-size:22px}
+  .verse .arabic{
+    width:100%;
+    font-size:clamp(23px,7vw,31px);
+    line-height:1.8;
+    margin:15px auto 9px;
+  }
+  .verse p{font-size:18px;line-height:1.45;max-width:340px}
+  .verse small{font-size:6.5px;letter-spacing:.20em}
+
+  /* ---------- COUNTDOWN ---------- */
+  .count{padding:65px 15px}
+  .count h2{font-size:45px;line-height:.9;margin:9px 0 30px}
+  .clock{width:100%;gap:4px}
+  .clock div{flex:1;min-width:0}
+  .clock b{font-size:clamp(27px,8.8vw,38px);line-height:1}
+  .clock span{font-size:5.5px;letter-spacing:.13em}
+  .clock i{font-size:20px;margin-top:-12px}
+
+  /* ---------- EVENT DETAILS ---------- */
+  .details{padding:84px 20px}
+  .details .eyebrow{font-size:6.5px}
+  .details h2{
+    font-size:clamp(54px,17vw,73px);
+    line-height:.78;
+    margin:17px 0 23px;
+  }
+  .intro{font-size:17px;line-height:1.45}
+  .info-grid{margin-top:38px;grid-template-columns:1fr}
+  .info-grid article{min-height:0;padding:34px 18px}
+  .info-grid b{font-size:27px;margin:11px 0 5px}
+  .info-grid p{font-size:10px;line-height:1.6}
+
+  /* ---------- TIMELINE ---------- */
+  .evening{padding:84px 20px}
+  .evening h2{
+    font-size:clamp(47px,15vw,66px);
+    line-height:.8;
+    margin:14px 0 36px;
+  }
+  .timeline{width:100%}
+  .timeline>div{
+    grid-template-columns:67px 1fr;
+    gap:13px;
+    padding:22px 0;
+  }
+  .timeline strong{font-size:19px}
+  .timeline b{font-size:25px}
+  .timeline p{font-size:9.5px;line-height:1.5;margin-bottom:0}
+
+  /* ---------- RSVP ---------- */
+  .rsvp{padding:86px 20px 100px}
+  .rsvp h2{
+    font-size:clamp(53px,17vw,74px);
+    line-height:.78;
+    margin:17px 0 35px;
+  }
+  .contacts{width:100%;margin:0 auto 28px}
+  .contacts>div{
+    gap:12px;
+    padding:16px 0;
+    font-size:9px;
+  }
+  .contacts span{min-width:0}
+  .contacts a{white-space:nowrap}
+  .share{min-height:44px;padding:13px 17px;font-size:6.5px}
+
+  footer{padding:48px 20px}
+  footer div{font-size:21px}
+  footer b{font-size:8px;letter-spacing:.25em}
+  footer span{font-size:6px}
+
+  /* Phones with very short viewports: prevent hero content clipping */
+  @media (max-height:700px){
+    .hero-inner{padding-top:70px;padding-bottom:52px}
+    .hero h1{margin-top:25px;margin-bottom:19px;font-size:clamp(46px,16vw,68px)}
+    .hero .date{margin-top:16px}
+    .hero .discover{margin-top:16px}
+    .cover h1{margin-top:27px;margin-bottom:18px}
+    .open-btn{margin-top:20px}
+  }
+
+  /* Tiny phones: keep everything legible without horizontal squeeze */
+  @media (max-width:360px){
+    .hero-inner{padding-left:17px;padding-right:17px}
+    .hero .bismillah{font-size:20px}
+    .hero .parents{font-size:15px}
+    .hero .request{font-size:6px}
+    .hero h1{font-size:clamp(46px,17vw,61px);gap:5px}
+    .hero .fullnames{font-size:6px}
+    .hero .date{font-size:6.5px}
+    .cover h1{font-size:clamp(50px,17vw,64px)}
+    .clock b{font-size:27px}
+  }
+
+  /* Respect reduced-motion accessibility without breaking entrance */
+  @media (prefers-reduced-motion:reduce){
+    *,*:before,*:after{animation-duration:.001ms!important;animation-iteration-count:1!important;scroll-behavior:auto!important;transition-duration:.001ms!important}
+  }
+}
+
+/* =========================================================
+   V10 — production mobile system
+   Uses dynamic viewport units, safe-area insets, fluid type,
+   staggered motion and an intentional cover-to-hero transition.
+   ========================================================= */
+html{background:#eee5d5;scroll-padding-top:0}
+body{overscroll-behavior-x:none}
+
+.cover-opening{animation:coverExit .72s cubic-bezier(.76,0,.24,1) forwards!important;pointer-events:none}
+.cover-opening .cover-content{animation:coverExitContent .72s cubic-bezier(.76,0,.24,1) forwards!important}
+.cover-opening .cover-ornament{animation:spin 10s linear infinite,coverOrbitExit .72s ease-in forwards!important}
+.open-btn.opening{transform:scale(.97);opacity:.7;pointer-events:none}
+
+.hero-inner>*{opacity:0;animation:heroItemIn .8s cubic-bezier(.16,1,.3,1) forwards}
+.hero-inner .bismillah{animation-delay:.10s}.hero-inner .eyebrow{animation-delay:.17s}.hero-inner .rule{animation-delay:.23s}.hero-inner .parents{animation-delay:.29s}.hero-inner .request{animation-delay:.35s}.hero-inner h1{animation-delay:.45s}.hero-inner .fullnames{animation-delay:.53s}.hero-inner .son{animation-delay:.59s}.hero-inner .date{animation-delay:.65s}.hero-inner .hero-time{animation-delay:.70s}.hero-inner .discover{animation-delay:.78s}
+
+@media (max-width:600px){
+  :root{--gutter:clamp(16px,5.5vw,24px);--safe-top:env(safe-area-inset-top,0px);--safe-bottom:env(safe-area-inset-bottom,0px)}
+  .preloader,.cover{height:100dvh;min-height:100svh;max-height:none}
+  .cover-content{width:100%;max-width:440px;padding:calc(var(--safe-top) + clamp(48px,8vh,78px)) var(--gutter) calc(var(--safe-bottom) + clamp(28px,5vh,48px));}
+  .cover h1{font-size:clamp(48px,17vw,76px);max-width:100%;}
+  .hero{min-height:100dvh;min-height:100svh;height:auto;}
+  .hero-inner{width:100%;max-width:440px;min-height:100dvh;min-height:100svh;padding:calc(var(--safe-top) + clamp(72px,9vh,92px)) var(--gutter) calc(var(--safe-bottom) + clamp(54px,7vh,72px));}
+  .hero .bismillah{font-size:clamp(19px,6.5vw,28px);max-width:100%;overflow:hidden;text-overflow:clip}
+  .hero h1{font-size:clamp(47px,17vw,76px);max-width:100%;}
+  .hero .fullnames{max-width:min(335px,100%)}
+  .hero .date{font-size:clamp(6.4px,1.85vw,8px);letter-spacing:clamp(.11em,1.5vw,.16em)}
+  .hero .discover{min-height:44px;border-radius:2px}
+  .petal-field{inset:0;overflow:hidden}
+  .petal-field i{will-change:transform,opacity}
+  .mandala,.cover-ornament{pointer-events:none;will-change:transform}
+}
+
+@media (max-width:380px){
+  .hero-inner{padding-left:16px;padding-right:16px}
+  .hero .bismillah{font-size:clamp(18px,6.3vw,23px)}
+  .hero .parents{font-size:clamp(15px,4.8vw,18px)}
+  .hero .request{font-size:6px;line-height:1.7}
+  .hero h1{font-size:clamp(44px,16.7vw,62px);margin-top:30px;margin-bottom:21px}
+  .hero .fullnames{font-size:5.9px;letter-spacing:.095em}
+  .hero .son{font-size:5.7px}
+  .hero .date{font-size:6.2px;letter-spacing:.10em}
+  .hero .hero-time{font-size:25px}
+  .hero .discover{font-size:6px;padding-left:11px;padding-right:11px}
+}
+
+@media (max-height:720px) and (max-width:600px){
+  .hero-inner{padding-top:calc(var(--safe-top) + 56px);padding-bottom:calc(var(--safe-bottom) + 42px)}
+  .hero .bismillah{margin-bottom:7px}.hero .rule{margin:9px auto}.hero .parents{margin-bottom:8px}
+  .hero h1{margin-top:24px;margin-bottom:18px}.hero .date{margin-top:15px}.hero .discover{margin-top:16px}
+  .cover-content{padding-top:calc(var(--safe-top) + 36px);padding-bottom:calc(var(--safe-bottom) + 26px)}
+  .cover h1{margin-top:24px;margin-bottom:18px}.open-btn{margin-top:18px}.tap-note{margin-top:9px}
+}
+
+@media (min-width:601px){
+  .hero-inner>*{animation:none;opacity:1}
+}
+
+@keyframes heroItemIn{from{opacity:0;transform:translateY(18px) scale(.985);filter:blur(3px)}to{opacity:1;transform:none;filter:none}}
+@keyframes coverExit{0%{opacity:1;transform:scale(1);filter:none}55%{opacity:1;transform:scale(1.035);filter:blur(0)}100%{opacity:0;transform:scale(1.08);filter:blur(5px);visibility:hidden}}
+@keyframes coverExitContent{0%{opacity:1;transform:translateY(0)}100%{opacity:0;transform:translateY(-22px)}}
+@keyframes coverOrbitExit{to{transform:scale(1.18) rotate(22deg);opacity:0}}

@@ -15,6 +15,7 @@ export default function Page(){
  const [playing,setPlaying]=useState(false);
  const [loading,setLoading]=useState(true);
  const [opened,setOpened]=useState(false);
+ const [opening,setOpening]=useState(false);
  const [days,setDays]=useState({d:0,h:0,m:0,s:0});
 
  useEffect(()=>{
@@ -61,13 +62,18 @@ export default function Page(){
   else{a.pause();setPlaying(false)}
  }
  async function openInvitation(){
-   setOpened(true);
+   if(opening)return;
+   setOpening(true);
    const a=audio.current;
    if(a){
      a.volume=.42;
      try{await a.play();setPlaying(true)}catch{}
    }
-   setTimeout(()=>document.getElementById("invitation")?.scrollIntoView({behavior:"smooth"}),250);
+   window.setTimeout(()=>{
+     setOpened(true);
+     setOpening(false);
+     requestAnimationFrame(()=>document.getElementById("invitation")?.scrollIntoView({behavior:"smooth",block:"start"}));
+   },700);
  }
  async function share(){
   const text="Rayyan & Mariam — Nikah, Sunday 15 November 2026 at 7:00 PM, The Coconut Garden, Karachi.";
@@ -83,7 +89,7 @@ export default function Page(){
     <div className="loader-text">A BEAUTIFUL BEGINNING</div>
   </div>
 
-  {!opened && !loading && <section className="cover">
+  {!opened && !loading && <section className={"cover "+(opening?"cover-opening":"")}>
     <div className="cover-glow"/>
     <div className="cover-ornament">✦</div>
     <div className="cover-content">
@@ -93,7 +99,7 @@ export default function Page(){
       <p className="cover-small">YOU ARE WARMLY INVITED TO CELEBRATE</p>
       <h1><span>Rayyan</span><small>&</small><span>Mariam</span></h1>
       <p className="cover-date">15 · 11 · 2026 &nbsp; | &nbsp; 7:00 PM</p>
-      <button className="open-btn" onClick={openInvitation}><span>OPEN INVITATION</span><b>✦</b></button>
+      <button className={"open-btn "+(opening?"opening":"")} onClick={openInvitation}><span>OPEN INVITATION</span><b>✦</b></button>
       <p className="tap-note">TAP TO ENTER · SOUND WILL BEGIN</p>
     </div>
   </section>}
