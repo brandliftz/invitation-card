@@ -1,5 +1,9 @@
-# Rayyan & Mariam — Nikah V5
-Premium cinematic digital invitation with the supplied childhood photo, original wedding-style instrumental ambience, countdown, Maps, RSVP and share controls.
-
-## Browser audio
-Modern browsers may block audible autoplay until the visitor interacts with the page. The site attempts autoplay immediately and starts the audio on the visitor's first tap/click if autoplay is blocked.
+# Rayyan & Mariam — Nikah V6
+Cinematic digital Nikah invitation with:
+- Premium preloader
+- Animated invitation cover with OPEN INVITATION button
+- Wedding-style original instrumental audio
+- Falling gold petals, orbital ornaments and reveal-on-scroll animations
+- Childhood photo section
+- Countdown, event timeline, Maps, RSVP and share
+- Browser-safe best-effort autoplay (browsers may require the visitor's first tap)

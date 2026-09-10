@@ -13,7 +13,26 @@ const fmt=(n:number)=>String(n).padStart(2,"0");
 export default function Page(){
  const audio=useRef<HTMLAudioElement>(null);
  const [playing,setPlaying]=useState(false);
+ const [loading,setLoading]=useState(true);
+ const [opened,setOpened]=useState(false);
  const [days,setDays]=useState({d:0,h:0,m:0,s:0});
+
+ useEffect(()=>{
+   const t=setTimeout(()=>setLoading(false),2400);
+   return()=>clearTimeout(t);
+ },[]);
+
+ useEffect(()=>{
+   if(loading)return;
+   const reveal=()=>{
+     document.querySelectorAll(".reveal").forEach(el=>{
+       const r=el.getBoundingClientRect();
+       if(r.top < window.innerHeight*.88) el.classList.add("visible");
+     });
+   };
+   reveal(); window.addEventListener("scroll",reveal,{passive:true});
+   return()=>window.removeEventListener("scroll",reveal);
+ },[loading]);
 
  useEffect(()=>{
    const tick=()=>{
@@ -41,6 +60,15 @@ export default function Page(){
   if(a.paused){try{await a.play();setPlaying(true)}catch{}}
   else{a.pause();setPlaying(false)}
  }
+ async function openInvitation(){
+   setOpened(true);
+   const a=audio.current;
+   if(a){
+     a.volume=.42;
+     try{await a.play();setPlaying(true)}catch{}
+   }
+   setTimeout(()=>document.getElementById("invitation")?.scrollIntoView({behavior:"smooth"}),250);
+ }
  async function share(){
   const text="Rayyan & Mariam — Nikah, Sunday 15 November 2026 at 7:00 PM, The Coconut Garden, Karachi.";
   if(navigator.share) await navigator.share({title:"Rayyan & Mariam",text,url:location.href});
@@ -48,10 +76,33 @@ export default function Page(){
  }
 
  return <main>
+  <div className={"preloader "+(!loading?"preloader-hide":"")}>
+    <div className="loader-petals">{Array.from({length:12}).map((_,i)=><i key={i} style={{"--i":i} as React.CSSProperties}>✦</i>)}</div>
+    <div className="loader-monogram">R <span>&</span> M</div>
+    <div className="loader-line"><span/></div>
+    <div className="loader-text">A BEAUTIFUL BEGINNING</div>
+  </div>
+
+  {!opened && !loading && <section className="cover">
+    <div className="cover-glow"/>
+    <div className="cover-ornament">✦</div>
+    <div className="cover-content">
+      <div className="eyebrow">WITH THE BLESSINGS OF ALLAH</div>
+      <div className="cover-bismillah">بِسْمِ اللهِ الرَّحْمٰنِ الرَّحِيمِ</div>
+      <div className="cover-line"/>
+      <p className="cover-small">YOU ARE WARMLY INVITED TO CELEBRATE</p>
+      <h1><span>Rayyan</span><small>&</small><span>Mariam</span></h1>
+      <p className="cover-date">15 · 11 · 2026 &nbsp; | &nbsp; 7:00 PM</p>
+      <button className="open-btn" onClick={openInvitation}><span>OPEN INVITATION</span><b>✦</b></button>
+      <p className="tap-note">TAP TO ENTER · SOUND WILL BEGIN</p>
+    </div>
+  </section>}
+
   <audio ref={audio} src="/nikah-wedding-ambience.wav" loop preload="auto" playsInline/>
   <button className="music" onClick={toggle}><span className={playing?"bars active":"bars"}><i/><i/><i/><i/></span>{playing?"MUSIC ON":"PLAY MUSIC"}</button>
 
-  <section className="hero">
+  <section className="hero" id="invitation">
+   <div className="petal-field">{Array.from({length:18}).map((_,i)=><i key={i} style={{"--i":i} as React.CSSProperties}>❧</i>)}</div>
    <div className="grain"/>
    <div className="glow g1"/><div className="glow g2"/>
    <div className="mandala m1">✦</div><div className="mandala m2">✦</div>
@@ -72,7 +123,7 @@ export default function Page(){
    <div className="bottom-note">A DAY OF DUAS · FAMILY · LOVE</div>
   </section>
 
-  <section className="memory" id="memory">
+  <section className="memory reveal" id="memory">
    <div className="memory-copy">
     <div className="eyebrow">A LITTLE MEMORY</div>
     <h2>Before the <em>forever.</em></h2>
@@ -86,14 +137,14 @@ export default function Page(){
    </div>
   </section>
 
-  <section className="verse">
+  <section className="verse reveal">
    <div className="ornament">❈</div>
    <div className="arabic">وَمِنْ آيَاتِهِ أَنْ خَلَقَ لَكُم مِّنْ أَنفُسِكُمْ أَزْوَاجًا</div>
    <p>“And among His signs is that He created for you spouses from among yourselves.”</p>
    <small>SURAH AR-RUM · 30:21</small>
   </section>
 
-  <section className="count">
+  <section className="count reveal">
    <div className="eyebrow">COUNTING THE MOMENTS</div>
    <h2>Until we gather.</h2>
    <div className="clock">
@@ -104,7 +155,7 @@ export default function Page(){
    </div>
   </section>
 
-  <section className="details">
+  <section className="details reveal">
    <div className="eyebrow">THE NIKKAH RECEPTION</div>
    <h2>Come celebrate<br/><em>with us.</em></h2>
    <p className="intro">We warmly look forward to welcoming you.<br/>Kindly grace us with your presence on time.</p>
@@ -114,7 +165,7 @@ export default function Page(){
    </div>
   </section>
 
-  <section className="evening">
+  <section className="evening reveal">
    <div className="eyebrow">THE EVENING</div><h2>A celebration in three acts.</h2>
    <div className="timeline">
     <div><strong>07:00</strong><section><b>Gathering</b><p>Arrive, settle in & share the joy.</p></section></div>
@@ -123,7 +174,7 @@ export default function Page(){
    </div>
   </section>
 
-  <section className="rsvp">
+  <section className="rsvp reveal">
    <div className="eyebrow">RSVP</div><h2>Your presence<br/><em>is our blessing.</em></h2>
    <div className="contacts">{contacts.map(([n,p])=><div key={p}><span>{n}</span><a href={"tel:"+p.replaceAll(" ","")}>{p}</a></div>)}</div>
    <button className="share" onClick={share}>SHARE INVITATION ↗</button>
