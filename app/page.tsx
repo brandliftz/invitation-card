@@ -98,7 +98,7 @@ export default function Page(){
     </div>
   </section>}
 
-  <audio ref={audio} src="/nikah-wedding-ambience.wav" loop preload="auto" playsInline/>
+  <audio ref={audio} src="/nikah-music.mp3" loop preload="auto" playsInline/>
   <button className="music" onClick={toggle}><span className={playing?"bars active":"bars"}><i/><i/><i/><i/></span>{playing?"MUSIC ON":"PLAY MUSIC"}</button>
 
   <section className="hero" id="invitation">
